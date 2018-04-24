@@ -64,7 +64,6 @@ const Rx = require('rxjs');
 //   x => console.log('obs1 ', x),
 //   e => console.log(e),
 //   () => console.log('complete')
-
 // )
 
 // var sub2 = src.subscribe(
