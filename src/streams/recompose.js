@@ -3,6 +3,7 @@ import { Observable } from 'rxjs'
 import config from 'recompose/rxjsObservableConfig'
 import { setObservableConfig, componentFromStream } from 'recompose'
 
+// https://github.com/acdlite/recompose/pull/660
 setObservableConfig(config)
 
 const Recompose = componentFromStream(props$ =>
