@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { inject, observer } from 'mobx-react'
-import { toStream } from 'mobx-utils'
+// import { toStream } from 'mobx-utils'
 import { Observable } from 'rxjs'
 import 'rxjs/add/observable/interval'
 import 'rxjs/add/observable/zip'
@@ -10,6 +10,8 @@ import 'rxjs/add/operator/do'
 import 'rxjs/add/operator/switchMap'
 import 'rxjs/add/operator/scan'
 import 'rxjs/add/operator/startWith'
+
+import { toStream } from './utils'
 
 @inject('store')
 @observer
@@ -29,15 +31,18 @@ class Mobx extends Component {
       )
       .subscribe(letter => this.props.store.setText(letter))
 
-    // this.sub$ = Observable.from(toStream(() => this.props.store.text))
-    //   // .startWith('test')
-    //   .switchMap(msg =>
-    //     createTypeWriter(msg, 500)
-    //   )
-    //   .subscribe(x => console.log(x))
-    //   // .map(message => ({ message }))
-    //   // .map(App)
+    this.sub$ = Observable.from(toStream(() => this.props.store.text))
+      // .startWith('test')
+      .subscribe(x => {
+        console.log(x)
+        this.props.store.setLabel(x+x)
+      })
+      // .map(message => ({ message }))
+      // .map(App)
 
+      // this.props.store.setText('dupa')
+
+      setTimeout(() => this.props.store.setText('AMIGO'), 2000);
   }
 
   componentWillUnmount() {
@@ -46,7 +51,11 @@ class Mobx extends Component {
 
   render() {
     return(
-      <h1>{this.props.store.text}</h1>
+      <div>
+        <h1>Label: {this.props.store.label}</h1>
+        <h2>Text: {this.props.store.text}</h2>
+        <h3>CompText: {this.props.store.textComp}</h3>
+      </div>
     )
   }
 }
