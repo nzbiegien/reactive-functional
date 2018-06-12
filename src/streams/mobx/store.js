@@ -4,6 +4,7 @@ export default class Store {
 
   @observable text = 'default text'
   @observable label = 'default label'
+  @observable cursor = -1
 
   @computed get textComp() {
     return this.text
@@ -16,5 +17,9 @@ export default class Store {
   @action
   setLabel(label) {
     this.label = label
+  }
+  @action
+  setCursor(cursor) {
+    this.cursor = cursor
   }
 }

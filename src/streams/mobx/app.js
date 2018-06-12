@@ -12,37 +12,38 @@ import 'rxjs/add/operator/scan'
 import 'rxjs/add/operator/startWith'
 
 import { toStream } from './utils'
+import KeyList from './keylist'
 
 @inject('store')
 @observer
 class Mobx extends Component {
 
   componentDidMount() {
-    const createTypeWriter = (message, speed) =>
-      Observable.zip(
-        Observable.from(message),
-        Observable.interval(speed),
-        letter => letter
-      ).scan((acc, curr) => acc + curr)
+    // const createTypeWriter = (message, speed) =>
+    //   Observable.zip(
+    //     Observable.from(message),
+    //     Observable.interval(speed),
+    //     letter => letter
+    //   ).scan((acc, curr) => acc + curr)
 
-    this.mouse$ = Observable.fromEvent(document.body, 'mousedown')
-      .switchMap(ev =>
-        createTypeWriter(this.props.store.text, 500)
-      )
-      .subscribe(letter => this.props.store.setText(letter))
+    // this.mouse$ = Observable.fromEvent(document.body, 'mousedown')
+    //   .switchMap(ev =>
+    //     createTypeWriter(this.props.store.text, 500)
+    //   )
+    //   .subscribe(letter => this.props.store.setText(letter))
 
-    this.sub$ = Observable.from(toStream(() => this.props.store.text))
-      // .startWith('test')
-      .subscribe(x => {
-        console.log(x)
-        this.props.store.setLabel(x+x)
-      })
-      // .map(message => ({ message }))
-      // .map(App)
+    // this.sub$ = Observable.from(toStream(() => this.props.store.text))
+    //   // .startWith('test')
+    //   .subscribe(x => {
+    //     console.log(x)
+    //     this.props.store.setLabel(x+x)
+    //   })
+    //   // .map(message => ({ message }))
+    //   // .map(App)
 
-      // this.props.store.setText('dupa')
+    //   // this.props.store.setText('dupa')
 
-      setTimeout(() => this.props.store.setText('AMIGO'), 2000);
+    //   setTimeout(() => this.props.store.setText('AMIGO'), 2000);
   }
 
   componentWillUnmount() {
@@ -52,9 +53,10 @@ class Mobx extends Component {
   render() {
     return(
       <div>
-        <h1>Label: {this.props.store.label}</h1>
+        {/* <h1>Label: {this.props.store.label}</h1>
         <h2>Text: {this.props.store.text}</h2>
-        <h3>CompText: {this.props.store.textComp}</h3>
+        <h3>CompText: {this.props.store.textComp}</h3> */}
+        <KeyList />
       </div>
     )
   }
