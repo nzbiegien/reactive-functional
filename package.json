@@ -13,6 +13,8 @@
     "mobx-react": "^5.1.2",
     "mobx-utils": "^4.0.1",
     "ramda": "^0.25.0",
+    "ramda-debug": "^0.1.4",
+    "ramda-fantasy": "^0.8.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-router-dom": "^4.2.2",

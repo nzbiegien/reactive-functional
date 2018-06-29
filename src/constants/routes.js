@@ -26,7 +26,7 @@ const Browser = () => (
 
       <hr />
 
-      <Route exact path='/mouse' component={Mouse} />
+      <Route exact path='/mouse' render={() => <Mouse test="test" />} />
       {/* <Route exact path='/recompose' component={Recompose} />
       <Route exact path='/recompose2' render={ () => Recompose2Component} /> */}
       <Route exact path='/mobx' render={() => Mobx} />

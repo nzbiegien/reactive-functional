@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import Rx from 'rxjs/Rx'
+import { Observable } from 'rxjs'
+import 'rxjs/add/observable/fromEvent'
 
 export default class Mouse extends Component {
-  state = { x: 0, y: 0 }
+  state = { x: 0, y: this.props.test }
 
   componentDidMount() {
-    this.sub = Rx.Observable.fromEvent(document, 'mousemove')
+    this.sub = Observable.fromEvent(document, 'mousemove')
       .subscribe(ev => this.setState({ x: ev.clientX, y: ev.clientY })
     )
   }
