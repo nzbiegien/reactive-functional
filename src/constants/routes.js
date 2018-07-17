@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
+import Test from 'others'
 import Mouse from 'streams/mouse'
 // import Recompose from 'streams/recompose'
 // import Recompose2Component from 'streams/recompose2'
@@ -10,6 +11,9 @@ const Browser = () => (
   <Router>
     <div>
       <ul>
+        <li>
+          <Link to='/test'>Test</Link>
+        </li>
         <li>
           <Link to='/mouse'>Mouse</Link>
         </li>
@@ -22,10 +26,14 @@ const Browser = () => (
         <li>
           <Link to='/mobx'>Mobx</Link>
         </li>
+        <li>
+          <Link to='/engine'>Engine</Link>
+        </li>
       </ul>
 
       <hr />
 
+      <Route exact path='/test' render={() => <Test/>} />
       <Route exact path='/mouse' render={() => <Mouse test="test" />} />
       {/* <Route exact path='/recompose' component={Recompose} />
       <Route exact path='/recompose2' render={ () => Recompose2Component} /> */}
