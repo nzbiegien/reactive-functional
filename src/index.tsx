@@ -5,6 +5,5 @@ import Browser from 'constants/routes'
 
 ReactDOM.render(
   <Browser />,
-  document.getElementById('root')
+  document.getElementById('root'),
 )
-

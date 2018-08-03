@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "lib": [
+      "es2017",
+      "dom"
+    ],
+    "jsx": "react",
+    "rootDir": "./src",
+    "baseUrl": "./src",
+    "strict": true,
+    "strictPropertyInitialization": false,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "pretty": true,
+    "noFallthroughCasesInSwitch": true,
+    "allowJs": false,
+    "alwaysStrict": true,
+    "noImplicitReturns": true,
+    "noStrictGenericChecks": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "preserveConstEnums": true,
+    "allowSyntheticDefaultImports": true,
+  },
+  "include": [
+    "src/**/*"
+   ],
+  "exclude": [
+    "src/**/*.test.ts"
+  ],
+  "plugins": [
+    {
+      "name": "typescript-styled-plugin"
+    }
+  ],
+
+}
