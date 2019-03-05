@@ -47,4 +47,3 @@ mapR(x => x * 2, [1,2,3]) //?
 
 const filterR = (fn, arr) => arr.reduce((acc, cur) => fn(cur) ? acc.concat(cur) : acc, [])
 filterR(x => x < 2, [1, 2, 3]) //?
-
